@@ -9,11 +9,11 @@ angular.module('xxxApp')
       if(form.$valid) {
         Auth.changePassword( $scope.user.oldPassword, $scope.user.newPassword )
         .then( function() {
-          $scope.message = 'Password successfully changed.';
+          $scope.message = 'Clave bien cambiada.';
         })
         .catch( function() {
           form.password.$setValidity('mongoose', false);
-          $scope.errors.other = 'Incorrect password';
+          $scope.errors.other = 'Clave incorrecta';
           $scope.message = '';
         });
       }
