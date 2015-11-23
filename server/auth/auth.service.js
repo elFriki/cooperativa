@@ -39,7 +39,7 @@ function isAuthenticated() {
  * Checks if the user role meets the minimum requirements of the route
  */
 function hasRole(roleRequired) {
-  if (!roleRequired) throw new Error('Required role needs to be set');
+  if (!roleRequired) throw new Error('se necesita un rol asociado al usuario');
 
   return compose()
     .use(isAuthenticated())
@@ -64,7 +64,7 @@ function signToken(id) {
  * Set token cookie directly for oAuth strategies
  */
 function setTokenCookie(req, res) {
-  if (!req.user) return res.status(404).json({ message: 'Something went wrong, please try again.'});
+  if (!req.user) return res.status(404).json({ message: 'Ups, algo ha ido mal, porfa, sigue probando.'});
   var token = signToken(req.user._id, req.user.role);
   res.cookie('token', JSON.stringify(token));
   res.redirect('/');

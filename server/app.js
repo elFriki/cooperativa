@@ -14,7 +14,7 @@ var config = require('./config/environment');
 // Connect to database
 mongoose.connect(config.mongo.uri, config.mongo.options);
 mongoose.connection.on('error', function(err) {
-	console.error('MongoDB connection error: ' + err);
+	console.error('Error de conexión con MongoDB: ' + err);
 	process.exit(-1);
 	}
 );
@@ -34,7 +34,7 @@ require('./routes')(app);
 
 // Start server
 server.listen(config.port, config.ip, function () {
-  console.log('Express server listening on %d, in %s mode', config.port, app.get('env'));
+  console.log('Servidor Express escuchando en %d, en modo %s', config.port, app.get('env'));
 });
 
 // Expose app
