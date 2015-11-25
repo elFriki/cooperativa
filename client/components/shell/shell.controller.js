@@ -38,9 +38,9 @@ angular.module('xxxApp')
           .targetEvent(originatorEv)
           .clickOutsideToClose(true)
           .parent('body')
-          .title('Suddenly, a redial')
-          .content('You just called a friend; who told you the most amazing story. Have a cookie!')
-          .ok('That was easy')
+          .title('De repente, una rellamada')
+          .content('Acabas de llamar a un amigo; el cual te contó una movida chupi. Toma una cookie!')
+          .ok('Fue fácil')
         );
       originatorEv = null;
     };
