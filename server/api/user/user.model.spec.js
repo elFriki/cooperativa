@@ -25,14 +25,14 @@ describe('User Model', function() {
     });
   });
 
-  it('should begin with no users', function(done) {
+  it('Debería empezar sin usuarios', function(done) {
     User.find({}, function(err, users) {
       users.should.have.length(0);
       done();
     });
   });
 
-  it('should fail when saving a duplicate user', function(done) {
+  it('Debería fallar al guardar usuario duplicado', function(done) {
     user.save(function() {
       var userDup = new User(user);
       userDup.save(function(err) {
@@ -42,7 +42,7 @@ describe('User Model', function() {
     });
   });
 
-  it('should fail when saving without an email', function(done) {
+  it('Debería fallar al guardar usuario sin email', function(done) {
     user.email = '';
     user.save(function(err) {
       should.exist(err);
@@ -50,11 +50,11 @@ describe('User Model', function() {
     });
   });
 
-  it("should authenticate user if password is valid", function() {
+  it("Debería permitir acceso al usuario cuando la clave es válida", function() {
     return user.authenticate('password').should.be.true;
   });
 
-  it("should not authenticate user if password is invalid", function() {
+  it("Debería no permitir acceso al usuario cuando la clave es inválida", function() {
     return user.authenticate('blah').should.not.be.true;
   });
 });
